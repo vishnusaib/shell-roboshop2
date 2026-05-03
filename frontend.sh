@@ -5,15 +5,19 @@ check_root
 
 
 dnf module disable nginx -y &>>$LOG_FILE
+VALIDATE $? "Disabling Default Nginx"
+
 dnf module enable nginx:1.24 -y &>>$LOG_FILE
+VALIDATE $? "Enable 1.24 Nginx"
+
 dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "Installing nginx"
 
-systemctl enable nginx 
+systemctl enable nginx &>>$LOG_FILE
 systemctl start nginx
 VALIDATE $? "Starting nginx"
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 VALIDATE $? "Removing html file"
 
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$LOG_FILE
