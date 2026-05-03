@@ -72,7 +72,7 @@ maven_setup(){
     VALIDATE $? "moving remaining jar file"
 }
 python3_setup(){
-    dnf install python3 gcc python3-devel -y
+    dnf install python3 gcc python3-devel -y &>>$LOG_FILE
     VALIDATE $? "Installing python3"
 
     pip3 install -r requirements.txt &>>$LOG_FILE
