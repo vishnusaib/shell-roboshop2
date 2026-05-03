@@ -7,7 +7,7 @@ check_root
 
 # validate functions takes input as exit status, what command they tried to install
 
-cp mongodb.repo /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongodb.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "Copying mongodb repo"
 
 dnf install mongodb-org -y &>>$LOG_FILE
