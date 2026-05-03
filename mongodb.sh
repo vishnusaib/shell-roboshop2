@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./common
+source ./common.sh
 app_name=mongodb
 # check the user has root priveleges or not
 check_root
