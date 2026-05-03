@@ -2,9 +2,9 @@
 Description = Dispatch Service
 [Service]
 User=roboshop
-// highlight-start
+# highlight-start
 Environment=AMQP_HOST=RABBITMQ-IP
-// highlight-end
+# highlight-end
 Environment=AMQP_USER=roboshop
 Environment=AMQP_PASS=roboshop123
 ExecStart=/app/dispatch
