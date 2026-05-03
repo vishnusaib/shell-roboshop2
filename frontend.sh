@@ -13,7 +13,7 @@ VALIDATE $? "Enable 1.24 Nginx"
 dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "Installing nginx"
 
-systemctl enable nginx &>>$LOG_FILE
+systemctl enable nginx
 systemctl start nginx
 VALIDATE $? "Starting nginx"
 
