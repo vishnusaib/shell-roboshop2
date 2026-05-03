@@ -16,12 +16,12 @@ systemd_setup
 dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "Installing MySQL"
 
-mysql -h mysql.vishnuv8.fun -u root -p$MySQL_Root_Password -e 'use cities' &>>$LOG_FILE
+mysql -h mysql.vishnuv8.shop -u root -p$MySQL_Root_Password -e 'use cities' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-    mysql -h mysql.vishnuv8.fun -uroot -p$MySQL_Root_Password < /app/db/schema.sql &>>$LOG_FILE
-    mysql -h mysql.vishnuv8.fun -uroot -p$MySQL_Root_Password < /app/db/app-user.sql &>>$LOG_FILE
-    mysql -h mysql.vishnuv8.fun -uroot -p$MySQL_Root_Password < /app/db/master-data.sql &>>$LOG_FILE
+    mysql -h mysql.vishnuv8.shop -uroot -p$MySQL_Root_Password < /app/db/schema.sql &>>$LOG_FILE
+    mysql -h mysql.vishnuv8.shop -uroot -p$MySQL_Root_Password < /app/db/app-user.sql &>>$LOG_FILE
+    mysql -h mysql.vishnuv8.shop -uroot -p$MySQL_Root_Password < /app/db/master-data.sql &>>$LOG_FILE
     VALIDATE $? "Loading Data in MySQL"
 else
     echo "Data is already loaded in MySQL"
